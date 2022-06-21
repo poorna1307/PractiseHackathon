@@ -1,6 +1,5 @@
 require('dotenv').config()
 const asyncHandler=require('express-async-handler')
-const bcrypt=require('bcryptjs')
 const exp=require('express')
 const adminAPI=exp.Router()
 adminAPI.use(exp.json())
