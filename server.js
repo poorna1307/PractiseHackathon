@@ -11,8 +11,8 @@ mclient
   .connect(DbUrl)
   .then((client) => {
     let dbObj = client.db("UWBDb");
-    let bornLearningsCollection = dbObj.collection("bornLearnings");
-    app.set('bornLearningsCollection', bornLearningsCollection);
+    let AdminCollection = dbObj.collection("Admin");
+    app.set('AdminCollection', AdminCollection);
     console.log("database connected");
   })
   .catch((err) => console.log("db connection error", err));
