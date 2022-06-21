@@ -40,7 +40,7 @@ function Stats() {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "Joined Children Chart",
       },
     },
   };
