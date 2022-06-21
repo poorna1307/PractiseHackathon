@@ -22,7 +22,7 @@ adminAPI.post('/login',asyncHandler(async(request,response)=>{
     }
 }))
 
-userApp.post('/create-user',asyncHandler(async(request,response)=>{
+adminAPI.post('/create-user',asyncHandler(async(request,response)=>{
     const AdminCollectionObj=request.app.get("AdminCollection");
     let newUser=request.body.userObj;
     let tempUser=await AdminCollectionObj.findOne({username:newUser.username})
