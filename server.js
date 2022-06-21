@@ -16,11 +16,16 @@ mclient
     console.log("database connected");
   })
   .catch((err) => console.log("db connection error", err));
+
 // const AdminApi = require("./APIS/admin");
 // app.use("/admin", AdminApi);
+
+
+// to build
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./build/index.html"));
 });
+// invalid paths
 app.use((req, res, next) => {
   res.send({ message: `path not found ${req.path}` });
 });
