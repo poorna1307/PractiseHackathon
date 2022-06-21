@@ -1,0 +1,54 @@
+import {createSlice,createAsyncThunk} from '@reduxjs/toolkit';
+import axios from 'axios';
+export const userLogin=createAsyncThunk("adminLogin",async(adminLoginDetails,thunkApi)=>{
+let response=await axios.post('/admin/login',adminLoginDetails);
+let data=response.data;
+if(data.message==="Login success"){
+    return data.userdata;
+}
+if(data.message==="Invalid users" || data.message==="Invalid password"){
+    return thunkApi.rejectWithValue(data);
+}
+})
+const adminLoginSlice=createSlice({
+    name:"adminLoginData",
+    initialState:{
+        userObj:{},
+        isPending:false,
+        isFulfilled:false,
+        isRejected:false,
+        errMsg:''
+    },
+    reducers:{
+        clearLoginStatus:(state)=>{
+            state.userObj=null;
+            state.isPending=false;
+            state.isFulfilled=false;
+            state.isRejected=false;
+            state.errMsg='';
+            localStorage.removeItem("login")
+            return state;
+        }
+    },
+    extraReducers:{
+        [userLogin.pending]:(state,action)=>{
+            state.isPending=true
+        },
+        [userLogin.fulfilled]:(state,action)=>{
+            state.userObj=action.payload;
+            state.isFulfilled=true;
+            state.isRejected=false;
+            state.isPending=false;
+            state.errMsg='';
+            localStorage.setItem("login",true)
+        },
+        [userLogin.rejected]:(state,action)=>{
+            state.isRejected=true;
+            state.isPending=false;
+            state.isFulfilled=false;
+            state.errMsg=action.payload.message;
+        }
+    }
+});
+export const {clearLoginStatus}=adminLoginSlice.actions;
+export default adminLoginSlice.reducer;
