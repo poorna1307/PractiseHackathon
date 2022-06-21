@@ -4,15 +4,20 @@ import {Form,Button} from "react-bootstrap";
 import 'bootstrap';
 import { adminLogin } from "../Slices/adminSlice";
 import { useDispatch} from "react-redux";
+import {useNavigate} from 'react-router-dom'
 
 
 function Login() {
     const{register,handleSubmit,formState:{errors},}=useForm();
     let dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const onFormSubmit=(userObj)=>{
-        console.log(userObj);
+        // console.log(userObj);
         dispatch(adminLogin(userObj));
+        if(localStorage.getItem('login')!=null){
+          navigate('/');
+        }
     }
     return (
         <div className='container col-sm-3 mt-3 '>
