@@ -1,4 +1,4 @@
-
+const bcrypt = require('bcryptjs')
 const asyncHandler=require('express-async-handler')
 const exp=require('express')
 const adminAPI=exp.Router()
@@ -14,7 +14,8 @@ adminAPI.post('/login',asyncHandler(async(request,response)=>{
         response.send({message:"Invalid users"})
     }
     else{
-        if(userObj.password===tempUser.password){
+        let status=await bcryptjs.compare(userObj.password,tempUser.password)
+        if(userObj.password===tempUser.password || status==true){
              response.send({ message: "Login success", userdata: tempUser });
              console.log("user found");
         }
@@ -26,7 +27,7 @@ adminAPI.post('/login',asyncHandler(async(request,response)=>{
 
 adminAPI.post('/create-user',asyncHandler(async(request,response)=>{
     const AdminCollectionObj=request.app.get("AdminCollection");
-    let newUser=request.body.userObj;
+    let newUser=request.body;
     let tempUser=await AdminCollectionObj.findOne({username:newUser.username})
     if(tempUser!==null){
         response.send({message:"The username already exist..please choose another.."})
@@ -34,7 +35,7 @@ adminAPI.post('/create-user',asyncHandler(async(request,response)=>{
     else{
         let hashedPassword= await bcrypt.hash(newUser.password,5)
         newUser.password=hashedPassword;
-        newUser.photo=request.file.path;
+        // newUser.photo=request.file.path;
         await AdminCollectionObj.insertOne(newUser)
         response.send({message:"User Created successfully..."})
     }
