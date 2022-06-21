@@ -22,4 +22,20 @@ adminAPI.post('/login',asyncHandler(async(request,response)=>{
     }
 }))
 
+userApp.post('/create-user',asyncHandler(async(request,response)=>{
+    const AdminCollectionObj=request.app.get("AdminCollection");
+    let newUser=request.body.userObj;
+    let tempUser=await AdminCollectionObj.findOne({username:newUser.username})
+    if(tempUser!==null){
+        response.send({message:"The username already exist..please choose another.."})
+    }
+    else{
+        let hashedPassword= await bcrypt.hash(newUser.password,5)
+        newUser.password=hashedPassword;
+        newUser.photo=request.file.path;
+        await AdminCollectionObj.insertOne(newUser)
+        response.send({message:"User Created successfully..."})
+    }
+}))
+
 module.exports=adminAPI;
