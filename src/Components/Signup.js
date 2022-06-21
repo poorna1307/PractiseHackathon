@@ -8,7 +8,18 @@ import 'bootstrap';
 function SignUp() {
     const{register,handleSubmit,formState:{errors},}=useForm();
     const onFormSubmit=(userObj)=>{
-        console.log(userObj);
+        axios.post('admin/create-user',userObj)
+        .then(response=>{
+            console.log(response)
+            alert(response.data.message)
+            if(response.data.message==="User Created successfully..."){
+                alert("Admin Added")
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+            alert(`error occured ${error}`)
+        })
     }
     return (
         <div className='container float-left col-sm-3 mt-3 me-5 '>
