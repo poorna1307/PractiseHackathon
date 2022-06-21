@@ -20,7 +20,7 @@ function Login() {
         }
     }
     return (
-        <div className='container mt-5 w-50'>
+        <div className='container mt-5 w-50 mb-5'>
         <div className='display-2 text-center text-dark'>Login</div>
             <Form className="w-50 mx-auto" onSubmit={handleSubmit(onFormSubmit)} >
                 {/* username */}
