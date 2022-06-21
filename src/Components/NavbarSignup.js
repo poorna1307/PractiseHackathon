@@ -16,7 +16,7 @@ function NavbarSignup() {
     let navigate=useNavigate();
     const handleSubmit=()=>{
          localStorage.clear();
-         dispatch(clearLogin());
+         dispatch(clearLoginStatus());
          navigate("/login");
     }
   return (
