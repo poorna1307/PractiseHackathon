@@ -28,8 +28,8 @@ function NavbarSignup() {
           <Navbar.Collapse id="navbarScroll">
           <Nav className="ms-auto my-2 my-lg-0" style={{fontSize:"1.3rem",maxHeight: '100px' }} navbarScroll>
             <Nav.Link><NavLink className="text-secondary " to="" style={{ textDecoration: 'none' }}>Home</NavLink></Nav.Link>
-            <Nav.Link><NavLink className="text-secondary" to="stats" style={{ textDecoration: 'none' }}>Our Statistics</NavLink></Nav.Link>
-            <Nav.Link><NavLink className="text-secondary" to="registeradmin" style={{ textDecoration: 'none' }}>Register-Admin</NavLink></Nav.Link>
+            <Nav.Link><NavLink className="text-secondary" to="/stats" style={{ textDecoration: 'none' }}>Our Statistics</NavLink></Nav.Link>
+            <Nav.Link><NavLink className="text-secondary" to="/registeradmin" style={{ textDecoration: 'none' }}>Register-Admin</NavLink></Nav.Link>
             <Button variant="outline-success" onClick={handleSubmit}>Logout</Button>
           </Nav>
           </Navbar.Collapse>

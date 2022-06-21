@@ -17,9 +17,9 @@ function NavigationBar() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
           <Nav className="ms-auto my-2 my-lg-0" style={{fontSize:"1.3rem",maxHeight: '100px' }} navbarScroll>
-            <Nav.Link><NavLink className="text-secondary " to="" style={{ textDecoration: 'none' }}>Home</NavLink></Nav.Link>
+            <Nav.Link><NavLink className="text-secondary " to="/" style={{ textDecoration: 'none' }}>Home</NavLink></Nav.Link>
             {/* <Nav.Link><NavLink className="text-secondary" to="stats" style={{ textDecoration: 'none' }}>Our Statistics</NavLink></Nav.Link> */}
-            <Nav.Link><NavLink className="text-secondary" to="login" style={{ textDecoration: 'none' }}>Login</NavLink></Nav.Link>
+            <Nav.Link><NavLink className="text-secondary" to="/login" style={{ textDecoration: 'none' }}>Login</NavLink></Nav.Link>
           </Nav>
           </Navbar.Collapse>
         </Container>

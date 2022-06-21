@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
+  let loginStatus = localStorage.getItem("login");
   let navigate = useNavigate();
   useEffect(() => {
-    let loginStatus = localStorage.getItem("login");
     if (loginStatus === null) {
       navigate("/");
     }
