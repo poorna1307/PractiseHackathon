@@ -1,28 +1,30 @@
-import React from 'react'
-import normalNav from './NavigationBar'
-import {clearLoginStatus} from '../Slices/adminSlice'
-import {useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import React from "react";
+import NormalNav from "./NavigationBar";
+import LoginNav from "./NavbarSignup";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
-    let loginStatus =localStorage.getItem("login");
-    let navigate=useNavigate();
-    useEffect(()=>{
-        if(loginStatus ==='false'){
-            navigate('/')
-        }
-    },loginStatus);
+  let loginStatus = localStorage.getItem("login");
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (loginStatus === null) {
+      navigate("/");
+    }
+  }, loginStatus);
   return (
     <div>
       {loginStatus === "true" ? (
-        <></>
+        <>
+          <LoginNav />
+        </>
       ) : (
         <>
-          <normalNav />
+          <NormalNav />
         </>
       )}
     </div>
   );
 }
 
-export default Header
+export default Header;

@@ -8,9 +8,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {NavLink} from 'react-router-dom';
+import { clearLoginStatus } from "../Slices/adminSlice";
+import {useDispatch} from 'react-redux'
+import { useNavigate } from "react-router-dom";
 function NavbarSignup() {
+    let dispatch = useDispatch();
+    let navigate=useNavigate();
     const handleSubmit=()=>{
-        
+         localStorage.clear();
+         dispatch(clearLogin());
+         navigate("/login");
     }
   return (
     <div>

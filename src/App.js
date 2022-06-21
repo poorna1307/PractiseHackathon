@@ -1,12 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import NavigationBar from './Components/NavigationBar';
-import NavbarSignup from './Components/NavbarSignup';
+import Header from './Components/Header';
 function App() {
   return (
     <div className="App">
-      {/* <NavigationBar/> */}
-      <NavbarSignup/>
+      <Header/>
     </div>
   );
 }

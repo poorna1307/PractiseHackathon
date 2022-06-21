@@ -2,7 +2,7 @@ import React from 'react'
 import {Routes,Route} from 'react-router-dom';
 import logo from '../Images/logo.jpg';
 import Home from './Home';
-import Stats from './Stats';
+import Login from './Login';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -28,7 +28,7 @@ function NavigationBar() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         {/* <Route path="/stats" element={<Stats/>}/> */}
-        <Route path="/login" element={<Home/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </div>
     </div>
