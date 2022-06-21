@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className='bg-dark'>
         <br/>
-        <div className="container bg-dark w-100 text-secondary">
+        <div className="container bg-dark w-100 text-light">
   <div className="row">
     <div className="col-4">
       <p><br/>
