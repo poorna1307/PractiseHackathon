@@ -3,16 +3,28 @@ import { useForm } from 'react-hook-form';
 import {Form,Button} from "react-bootstrap";
 import {MdLogin} from "react-icons/md";
 import 'bootstrap';
+import axios from 'axios'
 
 
 function SignUp() {
     const{register,handleSubmit,formState:{errors},}=useForm();
     const onFormSubmit=(userObj)=>{
-        console.log(userObj);
+        axios.post('/admin/create-user',userObj)
+        .then(response=>{
+            // console.log(response)
+            // alert(response.data.message)
+            if(response.data.message==="User Created successfully..."){
+                alert("Admin Added")
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+            alert(`error occured ${error}`)
+        })
     }
     return (
-        <div className='container float-left col-sm-3 mt-3 me-5 '>
-        <div className='display-2 text-center text-info'>SignUp</div>
+        <div className='container mx-auto col-sm-3 mt-3 '>
+        <div className='display-2 text-center text-dark'>SignUp</div>
             <Form className="w-50 mx-auto" onSubmit={handleSubmit(onFormSubmit)} >
                 {/* username */}
                 <Form.Group className="mb-3 mt-2" >

@@ -4,6 +4,7 @@ import {Routes,Route} from 'react-router-dom';
 import logo from '../Images/logo.jpg';
 import Home from './Home';
 import Stats from './Stats';
+import SignUp from './Signup'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -39,7 +40,7 @@ function NavbarSignup() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/stats" element={<Stats/>}/>
-        <Route path="/registeradmin" element={<Home/>}/>
+        <Route path="/registeradmin" element={<SignUp/>}/>
       </Routes>
     </div>
   )

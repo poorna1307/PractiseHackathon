@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='bg-dark w-100 mt-5 mb-0' style={{position:'-webkit-sticky',bottom:'0'}}>
+    <div className='bg-dark mt-auto'>
         <br/>
         <div className="container bg-dark w-100 text-light">
   <div className="row">
