@@ -17,8 +17,8 @@ mclient
   })
   .catch((err) => console.log("db connection error", err));
 
-// const AdminApi = require("./APIS/admin");
-// app.use("/admin", AdminApi);
+const AdminApi = require("./APIS/adminAPI");
+app.use("/admin", AdminApi);
 
 
 // to build
