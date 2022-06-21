@@ -7,11 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   let loginStatus = localStorage.getItem("login");
   let navigate = useNavigate();
-  useEffect(() => {
-    if (loginStatus === null) {
-      navigate("/");
-    }
-  }, loginStatus);
+  
   return (
     <div>
       {loginStatus != null ? (
