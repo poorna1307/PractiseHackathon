@@ -2,12 +2,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import {Form,Button} from "react-bootstrap";
 import 'bootstrap';
+import { adminLogin } from "../Slices/adminSlice";
+import { useDispatch} from "react-redux";
 
 
 function Login() {
     const{register,handleSubmit,formState:{errors},}=useForm();
+    let dispatch = useDispatch();
+
     const onFormSubmit=(userObj)=>{
         console.log(userObj);
+        dispatch(adminLogin(userObj));
     }
     return (
         <div className='container col-sm-3 mt-3 '>

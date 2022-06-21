@@ -1,6 +1,6 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
-export const userLogin=createAsyncThunk("adminLogin",async(adminLoginDetails,thunkApi)=>{
+export const adminLogin=createAsyncThunk("adminLogin",async(adminLoginDetails,thunkApi)=>{
 let response=await axios.post('/admin/login',adminLoginDetails);
 let data=response.data;
 if(data.message==="Login success"){
@@ -31,10 +31,10 @@ const adminLoginSlice=createSlice({
         }
     },
     extraReducers:{
-        [userLogin.pending]:(state,action)=>{
+        [adminLogin.pending]:(state,action)=>{
             state.isPending=true
         },
-        [userLogin.fulfilled]:(state,action)=>{
+        [adminLogin.fulfilled]:(state,action)=>{
             state.userObj=action.payload;
             state.isFulfilled=true;
             state.isRejected=false;
@@ -42,7 +42,7 @@ const adminLoginSlice=createSlice({
             state.errMsg='';
             localStorage.setItem("login",true)
         },
-        [userLogin.rejected]:(state,action)=>{
+        [adminLogin.rejected]:(state,action)=>{
             state.isRejected=true;
             state.isPending=false;
             state.isFulfilled=false;
