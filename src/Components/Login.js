@@ -20,7 +20,7 @@ function Login() {
         }
     }
     return (
-        <div className='container col-sm-3 mt-3 '>
+        <div className='container mt-5 w-50'>
         <div className='display-2 text-center text-dark'>Login</div>
             <Form className="w-50 mx-auto" onSubmit={handleSubmit(onFormSubmit)} >
                 {/* username */}
@@ -45,6 +45,7 @@ function Login() {
                 <Button variant="primary" type="submit" className='mb-4'>
                     Login
                 </Button>
+                
             </Form>
         </div>
     );
