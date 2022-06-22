@@ -1,10 +1,10 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 const app = express();
 const mclient = require("mongodb").MongoClient;
 const path = require("path");
 app.use(express.static(path.join(__dirname, "./build")));
-const DbUrl =
-  "mongodb+srv://poorna_1307:chandu13@poorna.zv57ipv.mongodb.net/?retryWrites=true&w=majority";
+const DbUrl = process.env.DB_URL;
 
 // connect db to server
 mclient
@@ -12,14 +12,13 @@ mclient
   .then((client) => {
     let dbObj = client.db("UWBDb");
     let AdminCollection = dbObj.collection("Admin");
-    app.set('AdminCollection', AdminCollection);
+    app.set("AdminCollection", AdminCollection);
     console.log("database connected");
   })
   .catch((err) => console.log("db connection error", err));
 
 const AdminApi = require("./APIS/adminAPI");
 app.use("/admin", AdminApi);
-
 
 // to build
 app.use("*", (req, res) => {
@@ -35,6 +34,7 @@ app.use((error, req, res, next) => {
   res.send({ message: `error ${error.message} has occured` });
 });
 
-app.listen(4001, () => {
-  console.log("listening on 4000");
+const port = process.env.PORT;
+app.listen(port, () => {
+  console.log("listening on", port);
 });
