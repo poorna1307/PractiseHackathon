@@ -36,7 +36,6 @@ function NavbarSignup() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/stats" element={<Stats/>}/>

@@ -23,7 +23,7 @@ function SignUp() {
         })
     }
     return (
-        <div className='container mx-auto col-sm-3 mt-3 '>
+        <div className='container mx-auto col-sm-3 mt-3'>
         <div className='display-2 text-center text-dark'>SignUp</div>
             <Form className="w-50 mx-auto" onSubmit={handleSubmit(onFormSubmit)} >
                 {/* username */}
