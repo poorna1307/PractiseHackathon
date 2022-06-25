@@ -20,7 +20,7 @@ function Stats() {
     axios
       .get("https://sheet.best/api/sheets/e548f04b-5202-4414-a365-837b4a88c1e0")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setExcelData(response.data);
       });
   }, []);

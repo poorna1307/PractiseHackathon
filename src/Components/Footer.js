@@ -1,7 +1,7 @@
 import React from 'react'
 function Footer() {
   return (
-    <div className='bg-dark bottom-0'>
+    <div className='bg-dark footer'>
         <br/>
         <div className="container bg-dark w-100 text-light">
   <div className="row">

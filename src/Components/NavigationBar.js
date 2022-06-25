@@ -13,7 +13,7 @@ function NavigationBar() {
         <div>
          <Navbar bg="light"  expand="lg">
         <Container>
-          <Navbar.Brand href="#home"><img src={logo} style={{height:'4rem'}}></img></Navbar.Brand>
+          <Navbar.Brand href="/"><img src={logo} style={{height:'4rem'}}></img></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
           <Nav className="ms-auto my-2 my-lg-0" style={{fontSize:"1.3rem",maxHeight: '100px' }} navbarScroll>
